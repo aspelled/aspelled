@@ -1,0 +1,11 @@
+commit 46097b22cda255386a37ac331d3efc5598b59dca
+Author: ShavelIlya <shavel.ilya@gmail.com>
+Date:   Tue Feb 7 12:19:05 2017 +0300
+
+    add.task1/status.txt
+
+commit 3fe3c4d7fda4ac29edcf5fe7c4f6b63f30764816
+Author: Shavel <shavel.ilya@gmail.com>
+Date:   Tue Feb 7 12:11:52 2017 +0300
+
+    add.gitignore

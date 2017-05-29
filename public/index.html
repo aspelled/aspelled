@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 	<meta charset="utf-8">
+	<link rel="icon" href="content/logo.png">
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="index.js" type="text/javascript"></script>
+	<title>Aspelled</title>
+</head>
+
+
+<body>
+	<div class="header">
+		<div id="headSide"></div>
+		<div class="headMid">
+			<div class="headMid-content">
+				<div class="logoBox">
+					<img src="content/logo.png" id="logo">
+				</div>
+
+				<ul class="menu">
+					<a id="aMain">Main</a>
+					<a id="aAdd"></a>
+					<a id="aSearch">Search</a>
+				</ul>
+
+				
+				<div class="log-info" title="Logout">
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="imagez">
+	</div>
+
+	<div class="main">
+		<div class="search">
+		</div>
+		<div class="main-title">
+			<h1>News</h1>
+		</div>
+
+		<div class="tag-box">
+			<ul class="tag-list">
+			</ul>
+		</div>
+
+
+		<div class="article-list">
+
+		</div>
+
+	</div>
+
+	<div class="footer">
+		<div class="footer-content">
+			Aspelled, Зубович Валерий 2 курс 7 группа, 
+			<a class="footer-mail" href="mailto:mateuser1701@gmail.com">mateuser1701@gmail.com</a>
+		</div>
+
+		<div class="VK">
+			<a href="https://vk.com/valery.zubovich">
+				<img src="content/VK.png">
+			</a>
+		</div>
+
+		<div class="Inst">
+			<a href="https://www.instagram.com/aspelled/">
+				<img src="content/Instagram.png">
+			</a>
+		</div>
+
+		<div class="Skype">
+			<a href="skype:swifft1701?call">
+				<img src="content/Skype.png">
+			</a>
+		</div>
+	</div>
+
+
+
+
+	<template id="template-article">
+		<div class="article">
+			<h2 class="article-title"><a id="article-title">Title</a></h2>
+			<div class="article-img">
+				<img id="article-img" src="">
+			</div>
+
+			<div class="article-tags-box">
+				<ul class="article-tags">
+					Tags
+				</ul>
+			</div>
+
+			<div class="article-box">
+				<div class="article-summary">
+					<p>
+						Summary
+					</p>
+				</div>
+
+				<div class="article-footer">
+					<div class="article-footer-publ">
+						Published:
+						<div id="article-publname">
+							Author:
+						</div>
+						,
+						<div id="article-date">
+							Date
+						</div>
+					</div>
+
+					<div id="readMore">Read more</div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="template-article-full">
+		<div class="article">
+			<h3 class="article-full-title"><a id="article-title">Head</a></h3>
+			<div class="article-full-img">
+				<img id="article-full-img" src="">
+			</div>
+			
+			<div class="article-tags-box">
+				<ul class="article-tags">
+					Tags
+				</ul>
+			</div>
+
+			<div class="article-box">
+				<div class="article-content">
+					<p>
+						Summary
+					</p>
+				</div>
+
+				<div class="article-footer">
+					<div class="article-footer-publ">
+						Published:
+						<div id="article-publname">
+							Author:
+						</div>
+						,
+						<div id="article-date">
+							Date
+						</div>
+					</div>
+
+					<button id='article-delete'>Delete</button>
+					<button id='article-change'>Edit</button>
+
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="template-add-article">
+		<div class="article">
+			<form name="add" class="article-box">
+				<h4>Name</h4>
+				<input maxlength='99'
+ type = "text" size = "70%" required class="input" name="title">
+
+ 				<h4>Image</h4>
+				<input
+ type = "text" size = "70%" class="input" name="img">
+
+				<h4>Tags</h4>
+				<select class="input-tags">	
+					Tags settings				
+				</select>
+
+				<textarea rows='2' cols='100'
+ type = "text" size = "70%" class="input" name="tags"></textarea>
+
+				<h4>Summary</h4>
+				<textarea rows='2' cols='100' maxlength='199'
+ type = "text" size = "70%" required class="input" name="summary"></textarea>
+
+				<h4>Content</h4>
+				<textarea rows='10' cols='100'
+ type = "text" " required class="input" name="content"></textarea>
+
+ 				<input class='input-button' type="submit" value="Send" onclick="inputSubmitHandler()">
+ 				<input class='input-button' type="reset" value="Clear">
+			</form>
+		</div>
+	</template>
+
+	<template id="template-search">
+		<form class='search-form' name='search'>
+			<a>Choose date:
+
+				<input class='search-button' onclick="searchReset()"type="reset" value="Clear">
+				<input class='search-button-accept' type="button" value="Apply" >
+
+				<p> from <input class='date-input' type="date" name="createdAfter"> to <input class='date-input' type="date" name="createdBefore"></p>
+			</a>
+
+			<a>Choose author</a>
+			<select class="search-author" name='author'>	
+				Authors settings				
+			</select>
+
+			<br/>
+			<a>Tags</a>
+			<select class="search-tags">	
+				Tags settings				
+			</select>
+
+			<textarea readonly rows='2' cols='70' type = "text" size = "70%" class="search-input" name="tags">
+
+			</textarea>
+
+		</form>
+	</template>
+
+	<template id="template-login">
+	<div class="login-background">
+			<form class='login-form' name='login'>
+				<h2 class='login-h2'>Login</h2>
+				<input type = "text" size = "30%" required class="login-input" name="login">
+
+				<h2 class='login-h2'>Password</h2>
+				<input type = "password" size = "30%" required class="login-input" name="password">
+
+				<h2><input class='login-button' type="submit" value="Login" onclick="loginSubmitHandler()">
+ 				<input class='reset-button' type="reset" value="Clear"></h2>
+			</form>
+		</div>
+	</template>
+
+</body>
+</html>
